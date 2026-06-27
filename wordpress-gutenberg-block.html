@@ -1,0 +1,103 @@
+<!-- wp:html -->
+<style>
+.dm-gb{font-family:Inter,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;color:#1a1f2e;background:#f5f7fc;line-height:1.6;max-width:100%;margin:0}
+.dm-gb .hero{background:linear-gradient(135deg,#1d2860 0%,#28337a 100%);color:#fff;padding:90px 24px 72px;text-align:center;position:relative;overflow:hidden}
+.dm-gb .hero::before{content:'';position:absolute;inset:0;background-image:url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%27100%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpolygon%20points%3D%2750%2C5%2095%2C50%2050%2C95%205%2C50%27%20fill%3D%27none%27%20stroke%3D%27rgba(77%2C195%2C255%2C0.07)%27%20stroke-width%3D%271%27%2F%3E%3C%2Fsvg%3E);background-size:100px 100px;z-index:0;pointer-events:none}
+.dm-gb .hero h1{font-size:clamp(24px,4.5vw,40px);font-weight:700;max-width:680px;margin:0 auto 12px;line-height:1.2}
+.dm-gb .hero::before{content:'';position:absolute;inset:0;background-image:url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%27100%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpolygon%20points%3D%2750%2C5%2095%2C50%2050%2C95%205%2C50%27%20fill%3D%27none%27%20stroke%3D%27rgba(77%2C195%2C255%2C0.07)%27%20stroke-width%3D%271%27%2F%3E%3C%2Fsvg%3E);background-size:100px 100px;z-index:0;pointer-events:none}
+.dm-gb .hero h1 em{font-style:normal;color:#4dc3ff}
+.dm-gb .hero p{font-size:clamp(14px,2vw,17px);max-width:540px;margin:0 auto 24px;color:#bcc7e0;line-height:1.7}
+.dm-gb .hero .btn{display:inline-block;background:#008DD2;color:#fff!important;padding:14px 36px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none}
+.dm-gb .hero .btn:hover{background:#0077b5}.dm-gb .intro{padding:40px 24px 32px;max-width:680px;margin:0 auto;text-align:center}
+.dm-gb .intro p{font-size:15px;color:#374151;line-height:1.8}
+.dm-gb .intro p strong{color:#28337a}
+.dm-gb .intro .sig{display:block;margin-top:12px;font-size:13px;color:#6b7a8f;font-style:italic}
+.dm-gb .sl{display:inline-block;background:#e0edf5;color:#1d2860;padding:3px 12px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+.dm-gb .st{font-size:clamp(18px,2.5vw,26px);font-weight:700;color:#1d2860;margin-bottom:6px;text-align:center}
+.dm-gb .sd{text-align:center;color:#6b7a8f;font-size:14px;max-width:500px;margin:0 auto 28px;line-height:1.5}
+.dm-gb .wrap{max-width:1100px;margin:0 auto;padding:0 24px 40px}
+.dm-gb .gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:860px){.dm-gb .gifts{grid-template-columns:repeat(2,1fr)}}@media(max-width:540px){.dm-gb .gifts{grid-template-columns:1fr}}
+.dm-gb .gift{background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all .25s}
+.dm-gb .gift:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(40,51,122,.1)}
+.dm-gb .gift.selected{border-color:#28337a;box-shadow:0 0 0 4px rgba(40,51,122,.1)}
+.dm-gb .gift .pic{height:170px;background:#eef3f8;display:flex;align-items:center;justify-content:center;font-size:64px;color:#28337a}
+.dm-gb .gift .info{padding:16px 18px 18px}
+.dm-gb .gift .info h3{font-size:15px;font-weight:700;color:#28337a;margin-bottom:3px}
+.dm-gb .gift .info p{font-size:13px;color:#6b7a8f;margin:0 0 8px}
+.dm-gb .gift .sel{display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid #e8edf2}
+.dm-gb .gift .sel input[type=radio]{accent-color:#28337a;width:16px;height:16px}
+.dm-gb .gift .sel label{font-size:13px;font-weight:600;cursor:pointer;color:#008DD2}
+.dm-gb .fx{background:#fff;padding:40px 24px 48px}
+.dm-gb .fm{max-width:600px;margin:0 auto}
+.dm-gb .fm h2{font-size:22px;font-weight:700;color:#1d2860;text-align:center;margin-bottom:4px}
+.dm-gb .fm .sub{text-align:center;color:#6b7a8f;margin-bottom:24px;font-size:14px}
+.dm-gb .chosen{text-align:center;padding:10px;background:#eef3f8;border-radius:8px;margin-bottom:20px;font-size:14px;color:#1a1f2e;display:none}
+.dm-gb .chosen strong{color:#28337a}
+.dm-gb .fg{margin-bottom:14px}
+.dm-gb .fg label{display:block;font-size:13px;font-weight:600;color:#28337a;margin-bottom:4px}
+.dm-gb .fg .r{color:#dc2626}
+.dm-gb .fg input,.dm-gb .fg select,.dm-gb .fg textarea{width:100%;padding:10px 12px;border:1px solid #d0d8e5;border-radius:8px;font-size:14px;font-family:inherit}
+.dm-gb .fg textarea{resize:vertical;min-height:60px}
+.dm-gb .fg input:focus,.dm-gb .fg select:focus,.dm-gb .fg textarea:focus{outline:none;border-color:#008DD2;box-shadow:0 0 0 3px rgba(0,141,210,.1)}
+.dm-gb .f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dm-gb .btn-sub{width:100%;padding:14px;background:#28337a;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+.dm-gb .btn-sub:hover{background:#1d2860}
+.dm-gb .msg{padding:16px 20px;border-radius:10px;margin-bottom:14px;display:none;font-size:14px;text-align:center;line-height:1.5}
+.dm-gb .msg.ok{display:block;background:#e0edf5;color:#1d2860;border:1px solid #c8d4e4}
+.dm-gb .msg.er{display:block;background:#fee2e2;color:#991b1b}
+.dm-gb .msg.ok h3{font-size:17px;margin-bottom:4px;color:#1d2860}
+@media(max-width:640px){.dm-gb .f2{grid-template-columns:1fr}}
+</style>
+<div class="dm-gb">
+<div class="hero"><h1>Un reconocimiento para usted, <em>Doctor(a)</em></h1>
+<p>Detr&aacute;s de cada paciente que atendemos, hay un m&eacute;dico como usted que lo hace posible. Por eso creamos este programa: para devolverle, aunque sea un poco, la confianza que deposita en nosotros.</p>
+<a href="#dm-gifts" class="btn">Ver los reconocimientos disponibles &darr;</a></div>
+<svg viewBox="0 0 1440 50" preserveAspectRatio="none" style="display:block;width:100%;height:50px"><path d="M0,25 C240,50 480,0 720,25 C960,50 1200,0 1440,25 L1440,50 L0,50 Z" fill="#f5f7fc"/></svg>
+<div class="intro"><p><strong>En Dolphin Medical admiramos su trabajo.</strong> Sabemos lo que implica estar ah&iacute;, tomar decisiones dif&iacute;ciles, mantener la calma cuando otros la pierden. Este programa de reconocimiento es nuestra forma de dec&iacute;rselo, con sinceridad, que valoramos todo lo que hace. Sin condiciones, sin compromisos.</p>
+<span class="sig">&mdash; El equipo de Dolphin Medical Colombia</span></div>
+<div class="wrap" id="dm-gifts"><div style="text-align:center;margin-bottom:28px">
+<span class="sl">Reconocimiento para su pr&aacute;ctica</span>
+<h2 class="st">Estos son los dispositivos que tenemos para usted</h2>
+<p class="sd">Cada uno fue seleccionado pensando en su utilidad cl&iacute;nica y en el bienestar de sus pacientes.</p></div>
+<div class="gifts" id="dmG">
+<div class="gift" data-n="Pesario Ring #5"><div class="pic">&#9675;</div><div class="info"><h3>Pesario Ring #5</h3><p>Flexibilidad y confort para el soporte p&eacute;lvico.</p><div class="sel"><input type="radio" name="dm" id="x1" value="Pesario Ring #5"><label for="x1">Seleccionar</label></div></div></div>
+<div class="gift" data-n="Balanza Monitor Grasa"><div class="pic">&#9878;</div><div class="info"><h3>Balanza Monitor Grasa</h3><p>Tecnolog&iacute;a de bioimpedancia para su consultorio.</p><div class="sel"><input type="radio" name="dm" id="x2" value="Balanza Monitor Grasa"><label for="x2">Seleccionar</label></div></div></div>
+<div class="gift" data-n="Linterna GMD LED"><div class="pic">&#9881;</div><div class="info"><h3>Linterna GMD LED</h3><p>Iluminaci&oacute;n cl&iacute;nica de alta fidelidad crom&aacute;tica.</p><div class="sel"><input type="radio" name="dm" id="x3" value="Linterna GMD LED"><label for="x3">Seleccionar</label></div></div></div>
+<div class="gift" data-n="Pulsioximetro GMDX-201D"><div class="pic">&#9829;</div><div class="info"><h3>Pulsiox&iacute;metro GMDX-201D</h3><p>Monitoreo de saturaci&oacute;n con curva de latidos.</p><div class="sel"><input type="radio" name="dm" id="x4" value="Pulsioximetro GMDX-201D"><label for="x4">Seleccionar</label></div></div></div>
+<div class="gift" data-n="Pesario Gellhorn #5"><div class="pic">&#9650;</div><div class="info"><h3>Pesario Gellhorn #5</h3><p>Soporte p&eacute;lvico reforzado con v&aacute;stago corto.</p><div class="sel"><input type="radio" name="dm" id="x5" value="Pesario Gellhorn #5"><label for="x5">Seleccionar</label></div></div></div>
+<div class="gift" data-n="Pesario Ring #6"><div class="pic">&#9733;</div><div class="info"><h3>Pesario Ring #6</h3><p>El est&aacute;ndar de referencia en soporte p&eacute;lvico.</p><div class="sel"><input type="radio" name="dm" id="x6" value="Pesario Ring #6"><label for="x6">Seleccionar</label></div></div></div>
+</div></div>
+<div class="fx"><div class="fm">
+<span class="sl" style="display:block;text-align:center;width:fit-content;margin:0 auto 10px">Sus datos</span>
+<h2>Queremos conocerlo</h2>
+<p class="sub">D&eacute;jenos sus datos y un asesor se comunicar&aacute; para coordinar la visita y hacerle entrega de su reconocimiento.</p>
+<div id="dmM" class="msg"></div>
+<form id="dmF">
+<div id="dmS" class="chosen">Ha seleccionado: <strong id="dmN">&mdash;</strong></div>
+<div class="fg"><label>Nombre completo <span class="r">*</span></label><input type="text" name="n" placeholder="Dr. Juan P&eacute;rez L&oacute;pez" required></div>
+<div class="fg"><label>Especialidad <span class="r">*</span></label><select name="e" required><option value="">Seleccione su especialidad</option>
+<option value="Ginecolog&iacute;a">Ginecolog&iacute;a</option>
+<option value="Medicina Materno-Fetal (Alto Riesgo Obst&eacute;trico)">Medicina Materno-Fetal (Alto Riesgo Obst&eacute;trico)</option>
+<option value="Endocrinolog&iacute;a Reproductiva e Infertilidad">Endocrinolog&iacute;a Reproductiva e Infertilidad</option>
+<option value="Ginecolog&iacute;a Oncol&oacute;gica">Ginecolog&iacute;a Oncol&oacute;gica</option>
+<option value="Uroginecolog&iacute;a y Cirug&iacute;a Reconstructiva P&eacute;lvica">Uroginecolog&iacute;a y Cirug&iacute;a Reconstructiva P&eacute;lvica</option>
+<option value="Ginecolog&iacute;a Pedi&aacute;trica">Ginecolog&iacute;a Pedi&aacute;trica</option>
+</select></div>
+<div class="fg"><label>Direcci&oacute;n del consultorio <span class="r">*</span></label><input type="text" name="d" placeholder="Ciudad, direcci&oacute;n, consultorio..." required></div>
+<div class="fg"><label>¿Hay alg&uacute;n dispositivo o insumo m&eacute;dico que hoy sea dif&iacute;cil de conseguir para su pr&aacute;ctica? Cu&eacute;ntenos, queremos ayudarlo a encontrarlo.</label><textarea name="nec" rows="3" placeholder="Ej: Un espir&oacute;metro pedi&aacute;trico, un dermoscopio digital, un monitor de presi&oacute;n arterial de brazo grande..."></textarea></div>
+<div class="f2"><div class="fg"><label>Fecha de visita <span class="r">*</span></label><input type="date" name="fecha" required min="2026-07-07" max="2026-07-31"></div>
+<div class="fg"><label>Horario preferido <span class="r">*</span></label><select name="horario" required><option value="">Seleccione horario</option><option value="8:00 - 10:00">8:00 - 10:00</option><option value="10:00 - 12:00">10:00 - 12:00</option><option value="12:00 - 14:00">12:00 - 14:00</option><option value="14:00 - 17:00">14:00 - 17:00</option></select></div></div>
+<div class="f2"><div class="fg"><label>WhatsApp <span class="r">*</span></label><input type="tel" name="w" placeholder="+57 300 000 0000" required></div>
+<div class="fg"><label>Correo electr&oacute;nico</label><input type="email" name="em" placeholder="Opcional"></div></div>
+<button type="submit" class="btn-sub" id="dmB">Enviar solicitud &rarr;</button>
+<p style="text-align:center;margin-top:10px;font-size:12px;color:#9ca3af">Recibir&aacute; confirmaci&oacute;n por WhatsApp en las pr&oacute;ximas 24 horas.</p>
+<p style="text-align:center;margin-top:4px;font-size:11px;color:#9ca3af;line-height:1.4">Las visitas se coordinar&aacute;n durante julio de 2026, de 8:00 a 17:00.</p>
+</form></div></div></div>
+<script>
+(function(){var c=document.querySelectorAll(".dm-gb .gift"),d=document.getElementById("dmS"),n=document.getElementById("dmN"),m=document.getElementById("dmM"),f=document.getElementById("dmF"),b=document.getElementById("dmB");
+c.forEach(function(t){t.addEventListener("click",function(){var r=t.querySelector("input[type=radio]");if(r){r.checked=true;c.forEach(function(x){x.classList.remove("selected")});t.classList.add("selected");var v=r.value;d.style.display=v?"block":"none";n.textContent=v||"---"}})});
+f.addEventListener("submit",function(e){e.preventDefault();var sel=document.querySelector(".dm-gb input[name=dm]:checked");if(!sel){m.className="msg er";m.innerHTML="Seleccione un reconocimiento primero.";m.style.display="block";setTimeout(function(){m.style.display="none"},4000);return}b.disabled=true;b.textContent="Enviando...";m.style.display="none";
+var p={reconocimiento:sel.value,nombre:document.querySelector("[name=n]").value,especialidad:document.querySelector("[name=e]").value,direccion:document.querySelector("[name=d]").value,fecha:document.querySelector("[name=fecha]").value,horario:document.querySelector("[name=horario]").value,necesidad:document.querySelector("[name=nec]").value||"--",whatsapp:document.querySelector("[name=w]").value,email:document.querySelector("[name=em]").value||"--"};
+fetch("https://formspree.io/f/mojodrqy",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(p)}).then(function(r){if(r.ok){try{fetch("GSHEET_URL_PLACEHOLDER",{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(p)})}catch(e){}m.className="msg ok";m.innerHTML="<h3>Gracias, doctor.</h3>Su solicitud ha sido recibida. En Dolphin Medical valoramos profundamente su confianza. Un asesor se comunicará al WhatsApp registrado para coordinar la entrega de su reconocimiento. Siga cuidando de sus pacientes, que de nosotros se cuida usted.";m.style.display="block";f.reset();c.forEach(function(x){x.classList.remove("selected")});d.style.display="none"}else{var z=JSON.parse(localStorage.getItem("dm")||"[]");z.push(p);localStorage.setItem("dm",JSON.stringify(z));m.className="msg ok";m.innerHTML="<h3>Recibido.</h3>Su solicitud quedó registrada en nuestro sistema.";m.style.display="block"}}).catch(function(){var z=JSON.parse(localStorage.getItem("dm")||"[]");z.push(p);localStorage.setItem("dm",JSON.stringify(z));m.className="msg ok";m.innerHTML="<h3>Recibido.</h3>Su solicitud quedó registrada.";m.style.display="block"}).finally(function(){b.disabled=false;b.textContent="Enviar solicitud →";setTimeout(function(){m.style.display="none"},8000)})})})();
+</script>
+<!-- /wp:html -->
