@@ -68,6 +68,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .msg.ok{display:block;background:#e0edf5;color:#1d2860;border:1px solid #c8d4e4}
 .msg.er{display:block;background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
 .msg.ok h3{font-size:18px;margin-bottom:6px;color:#1d2860}
+.fg input[type=file]{padding:8px 10px;font-size:14px;background:#f8faff}
+.fg input[type=file]::file-selector-button{padding:6px 14px;background:#28337a;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;margin-right:10px}
 
 /* FOOTER */
 .footer{background:#1d2860;color:#bcc7e0;padding:32px 24px 20px;font-size:13px}
@@ -90,17 +92,6 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 </head>
 <body>
 <section class="hero">
-  <div class="dm-logo" style="margin-bottom:24px;display:flex;justify-content:center;align-items:center">
-  <svg width="240" height="auto" viewBox="0 0 167.51 30" xmlns="http://www.w3.org/2000/svg" style="max-width:240px">
-    <g fill="#FFFFFF">
-      <path d="M8.95,21.9c-2.76-7.36,1.89-11.32,1.89-11.32-.57-2.58-2.2-2.71-2.68-2.69l-6.12,11.02,6.33,3.53.58-.54Z"/>
-      <path d="M13.88,7.89s2.24-2.26,5.84-2.03L11.76,1.37l-2.93,5.29c.73-.31,3.51-1.28,5.05,1.24Z"/>
-      <path d="M22.63,7.5l1.46,1.91s4.89,1.6,1.74,1.98l-4.63.1s-2.53.82-5.73,5.18c0,0-1.55,2.33-.29-2.88,0,0-4.74,4.81-3.63,6.79,0,0,6.48,2.81,4.31,2.76l-4.02.1s-.73.14-.99.38l8.62,4.81,9.77-17.4-6.62-3.74Z"/>
-    </g>
-    <text x="36" y="22" font-family="Inter,sans-serif" font-weight="700" font-size="12" fill="#FFFFFF">Dolphin <tspan fill="#4dc3ff">Medical</tspan></text>
-  </svg>
-</div>
-
   <h1>Un reconocimiento para usted, <em>Doctor(a)</em></h1>
   <p>Detr&aacute;s de cada paciente que atendemos, hay un m&eacute;dico como usted que lo hace posible. Por eso creamos este programa: para devolverle, aunque sea un poco, la confianza que deposita en nosotros.</p>
   <a href="#productos" class="btn">Ver los reconocimientos disponibles &darr;</a>
@@ -129,8 +120,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 </div>
 <section class="form-section" id="formulario">
   <div class="form-card">
-    <span class="sl" style="display:block;text-align:center;width:fit-content;margin:0 auto 10px">Sus datos</span>
-    <h2>Queremos conocerlo</h2>
+    <h2 class="form-title">Sus datos</h2>
     <p class="sub">D&eacute;jenos sus datos y un asesor se comunicar&aacute; para coordinar la visita y hacerle entrega de su reconocimiento.</p>
     <div id="msgBox" class="msg"></div>
     <form id="frm">
@@ -156,6 +146,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
       <div class="fg"><label>¿Hay alg&uacute;n dispositivo o insumo m&eacute;dico que hoy sea dif&iacute;cil de conseguir para su pr&aacute;ctica? Cu&eacute;ntenos, queremos ayudarlo a encontrarlo.</label>
         <textarea name="necesidad" rows="3" placeholder="Ej: Un espir&oacute;metro pedi&aacute;trico, un dermoscopio digital, un monitor de presi&oacute;n arterial de brazo grande..."></textarea>
+      <div class="fg"><label>Subir foto del insumo que necesita <span class="r">*</span></label>
+        <input type="file" name="foto_insumo" accept="image/*" capture="environment" required>
+        <p style="font-size:12px;color:#9ca3af;margin-top:4px">Tome una foto del dispositivo o insumo que necesita. Formatos: JPG, PNG.</p>
+      </div>
       </div>
 
       <div class="f2">
@@ -193,7 +187,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 (function(){
 var cards=document.querySelectorAll('.gift'),d=document.getElementById('selShow'),n=document.getElementById('selName'),m=document.getElementById('msgBox'),f=document.getElementById('frm'),b=document.getElementById('btnSub');
 cards.forEach(function(t){t.addEventListener('click',function(){var r=t.querySelector('input[type=radio]');if(r){r.checked=true;cards.forEach(function(x){x.classList.remove('selected')});t.classList.add('selected');var v=r.value;d.style.display=v?'block':'none';n.textContent=v||'---'}})});
-f.addEventListener('submit',function(e){e.preventDefault();var sel=document.querySelector('input[name=g]:checked');if(!sel){o('er','Seleccione un reconocimiento primero.');return}b.disabled=true;b.textContent='Enviando...';m.style.display='none';var p={reconocimiento:sel.value,nombre:document.querySelector('[name=nombre]').value,especialidad:document.querySelector('[name=especialidad]').value,direccion:document.querySelector('[name=direccion]').value,fecha:document.querySelector('[name=fecha]').value,horario:document.querySelector('[name=horario]').value,necesidad:document.querySelector('[name=necesidad]').value||'--',whatsapp:document.querySelector('[name=whatsapp]').value,email:document.querySelector('[name=email]').value||'--'};fetch('https://formspree.io/f/mojodrqy',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(p)}).then(function(r){if(r.ok){try{fetch('GSHEET_URL_PLACEHOLDER',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)})}catch(e){}o('ok','<h3>Gracias, doctor.</h3>Su solicitud ha sido recibida. En Dolphin Medical valoramos profundamente su confianza. Un asesor se comunicará al WhatsApp registrado para coordinar la entrega de su reconocimiento. Siga cuidando de sus pacientes, que de nosotros se cuida usted.');f.reset();cards.forEach(function(x){x.classList.remove('selected')});d.style.display='none'}else{var z=JSON.parse(localStorage.getItem('dm')||'[]');z.push(p);localStorage.setItem('dm',JSON.stringify(z));o('ok','<h3>Recibido.</h3>Su solicitud quedó registrada en nuestro sistema. Nos pondremos en contacto pronto.')}}).catch(function(){var z=JSON.parse(localStorage.getItem('dm')||'[]');z.push(p);localStorage.setItem('dm',JSON.stringify(z));o('ok','<h3>Recibido.</h3>Su solicitud quedó registrada en nuestro sistema.')}).finally(function(){b.disabled=false;b.textContent='Enviar solicitud →'})});
+f.addEventListener('submit',function(e){e.preventDefault();var sel=document.querySelector('input[name=g]:checked');if(!sel){o('er','Seleccione un reconocimiento primero.');return}var foto=document.querySelector('input[name=foto_insumo]');if(!foto.files||!foto.files[0]){o('er','Por favor suba una foto del insumo que necesita.');return}b.disabled=true;b.textContent='Enviando...';m.style.display='none';var p={reconocimiento:sel.value,nombre:document.querySelector('[name=nombre]').value,especialidad:document.querySelector('[name=especialidad]').value,direccion:document.querySelector('[name=direccion]').value,fecha:document.querySelector('[name=fecha]').value,horario:document.querySelector('[name=horario]').value,necesidad:document.querySelector('[name=necesidad]').value||'--',whatsapp:document.querySelector('[name=whatsapp]').value,email:document.querySelector('[name=email]').value||'--'};fetch('https://formspree.io/f/mojodrqy',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(p)}).then(function(r){if(r.ok){try{fetch('GSHEET_URL_PLACEHOLDER',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)})}catch(e){}o('ok','<h3>Gracias, doctor.</h3>Su solicitud ha sido recibida. En Dolphin Medical valoramos profundamente su confianza. Un asesor se comunicará al WhatsApp registrado para coordinar la entrega de su reconocimiento. Siga cuidando de sus pacientes, que de nosotros se cuida usted.');f.reset();cards.forEach(function(x){x.classList.remove('selected')});d.style.display='none'}else{var z=JSON.parse(localStorage.getItem('dm')||'[]');z.push(p);localStorage.setItem('dm',JSON.stringify(z));o('ok','<h3>Recibido.</h3>Su solicitud quedó registrada en nuestro sistema. Nos pondremos en contacto pronto.')}}).catch(function(){var z=JSON.parse(localStorage.getItem('dm')||'[]');z.push(p);localStorage.setItem('dm',JSON.stringify(z));o('ok','<h3>Recibido.</h3>Su solicitud quedó registrada en nuestro sistema.')}).finally(function(){b.disabled=false;b.textContent='Enviar solicitud →'})});
 function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.display='block';setTimeout(function(){m.style.display='none'},8000)}
 })();
 </script>
