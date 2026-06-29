@@ -78,8 +78,9 @@ function doGet() {
   return HtmlService.createHtmlOutput("<h1>Dolphin Medical</h1><p>POST endpoint activo.</p>");
 }
 
-function respuesta(codigo, mensaje) {
+function respuesta(codigo, data) {
+  var content = (typeof data === 'string') ? data : JSON.stringify(data);
   return ContentService
-    .createTextOutput(JSON.stringify({status: "ok"}))
+    .createTextOutput(content)
     .setMimeType(ContentService.MimeType.JSON);
 }
