@@ -39,14 +39,15 @@ function doPost(e) {
       data.email || "", "Programa Reconocimiento Dolphin Medical"
     ]);
 
-    enviarNotificacion(data);
-    return respuesta(200, "OK");
+    var notifOk = enviarNotificacion(data);
+    return respuesta(200, JSON.stringify({status: "ok", sheets: true, email: notifOk}));
   } catch(err) {
     return respuesta(500, err.toString());
   }
 }
 
 function enviarNotificacion(data) {
+  var ok = false;
   var asunto = "Nuevo registro - Reconocimiento Dolphin Medical";
   var cuerpo = "<h2>Nuevo medico registrado</h2><table>";
   cuerpo += "<tr><td><b>Reconocimiento:</b></td><td>" + (data.reconocimiento || "--") + "</td></tr>";
@@ -67,8 +68,10 @@ function enviarNotificacion(data) {
         subject: asunto,
         htmlBody: cuerpo
       });
-    } catch(err) {}
+      ok = true;
+    } catch(err) { ok = false; }
   }
+  return ok;
 }
 
 function doGet() {
