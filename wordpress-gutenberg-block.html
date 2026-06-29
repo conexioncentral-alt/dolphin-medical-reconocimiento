@@ -138,7 +138,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <div class="fg"><label>Direcci&oacute;n del consultorio <span class="r">*</span></label><input type="text" name="direccion" placeholder="Ciudad, direcci&oacute;n, consultorio..." required></div>
 
       <div class="fg"><label>¿Hay alg&uacute;n dispositivo o insumo m&eacute;dico que hoy sea dif&iacute;cil de conseguir para su pr&aacute;ctica? Cu&eacute;ntenos, queremos ayudarlo a encontrarlo.</label>
-        <textarea name="necesidad" rows="3" placeholder="Ej: Un espir&oacute;metro pedi&aacute;trico, un dermoscopio digital, un monitor de presi&oacute;n arterial de brazo grande..." required></textarea>
+        <textarea name="necesidad" rows="3" required placeholder="Ej: Un espir&oacute;metro pedi&aacute;trico, un dermoscopio digital, un monitor de presi&oacute;n arterial de brazo grande..." required></textarea>
       </div>
 
       <div class="f2">
@@ -156,7 +156,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
       <div class="f2">
         <div class="fg"><label>WhatsApp <span class="r">*</span></label><input type="tel" name="whatsapp" placeholder="+57 300 000 0000" pattern="[+]?[\d\s()-]{7,15}" title="Formato: +57 300 000 0000" required></div>
-        <div class="fg"><label>Correo electr&oacute;nico</label><input type="email" name="email" placeholder="Opcional"></div>
+        <div class="fg"><label>Correo electr&oacute;nico <span class="r">*</span></label><input type="email" name="email" placeholder="medico@consultorio.com" required=""></div>
       </div>
 
       <div class="fg" style="margin-bottom:14px">
@@ -166,7 +166,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
         </label>
       </div>
 
-      <button type="submit" class="btn-sub" id="btnSub">Enviar solicitud &rarr;</button>
+      <button type="submit" class="btn-sub" id="btnSub" disabled>Enviar solicitud &rarr;</button>
       <p style="text-align:center;margin-top:10px;font-size:12px;color:#9ca3af">Recibir&aacute; confirmaci&oacute;n por WhatsApp en las pr&oacute;ximas 24 horas.</p>
       <p style="text-align:center;margin-top:4px;font-size:11px;color:#9ca3af;line-height:1.4">Las visitas se coordinar&aacute;n durante julio de 2026, de 8:00 a 17:00.</p>
     </form>
@@ -197,4 +197,51 @@ function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.di
     fechaInp.max = maxD.getFullYear()+'-'+String(maxD.getMonth()+1).padStart(2,'0')+'-'+String(maxD.getDate()).padStart(2,'0');
   }
 })();
+
+// Form validation - enable submit only when all required fields are valid
+(function(){
+  var frm = document.getElementById('frm');
+  var btn = document.getElementById('btnSub');
+  var requiredFields = frm.querySelectorAll('[required]');
+  
+  function checkForm() {
+    var valid = true;
+    requiredFields.forEach(function(field) {
+      // Skip hidden checkboxes that are visually part of terms
+      if (field.type === 'checkbox' && !field.checked) { valid = false; return; }
+      if (field.type === 'checkbox') { return; } // checked OK
+      if (!field.value || field.value.trim() === '') { valid = false; return; }
+      // Special validation for selects
+      if (field.tagName === 'SELECT' && field.value === '') { valid = false; return; }
+      // Special validation for radio (gift selection)
+      if (field.type === 'radio' && field.name === 'g') {
+        var radios = frm.querySelectorAll('input[name="g"]');
+        var checked = false;
+        radios.forEach(function(r) { if(r.checked) checked = true; });
+        if (!checked) valid = false;
+      }
+      // Email validation
+      if (field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+        valid = false;
+      }
+    });
+    btn.disabled = !valid;
+  }
+  
+  // Listen on all required fields
+  requiredFields.forEach(function(field) {
+    field.addEventListener('change', checkForm);
+    field.addEventListener('input', checkForm);
+    field.addEventListener('blur', checkForm);
+  });
+  
+  // Also listen on gift card clicks
+  document.querySelectorAll('.gift').forEach(function(g) {
+    g.addEventListener('click', function() { setTimeout(checkForm, 100); });
+  });
+  
+  // Initial check
+  checkForm();
+})();
+
 </script>
