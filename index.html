@@ -178,7 +178,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 var cards=document.querySelectorAll('.gift'),d=document.getElementById('selShow'),n=document.getElementById('selName'),m=document.getElementById('msgBox'),f=document.getElementById('frm'),b=document.getElementById('btnSub');
 cards.forEach(function(t){t.addEventListener('click',function(){var r=t.querySelector('input[type=radio]');if(r){r.checked=true;cards.forEach(function(x){x.classList.remove('selected')});t.classList.add('selected');var v=r.value;d.style.display=v?'block':'none';n.textContent=v||'---'}})});
 
-var APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTr9727ihFTA-cTvg5GVi1vw3RrJvcEtgXq4AKOsnMr9ejTWvGlCqI3PFs8CJ0EyO-/exec';
+var APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-m5eMjHTtN-rfDwfzhZkDohhv75rHPneBC33Eq9k-iUSLKCzDLegx0c-vW0gatXfh/exec';
 
 f.addEventListener('submit',function(e){
   e.preventDefault();
