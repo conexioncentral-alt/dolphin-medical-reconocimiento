@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solictud recibida &mdash; Dolphin Medical</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1f2e;background:#f5f7fc;line-height:1.6}
+.hero{background:linear-gradient(135deg,#1A90D6 0%,#1680C0 100%);color:#fff;padding:80px 24px 70px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%27100%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpolygon%20points%3D%2750%2C5%2095%2C50%2050%2C95%205%2C50%27%20fill%3D%27none%27%20stroke%3D%27rgba(77%2C195%2C255%2C0.06)%27%20stroke-width%3D%271%27%2F%3E%3C%2Fsvg%3E");background-size:100px 100px;z-index:0}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#1A90D6,#4DC3FF,#1A90D6)}
+.hero .icon{font-size:64px;margin-bottom:16px;position:relative;z-index:1}
+.hero h1{font-size:clamp(26px,5vw,40px);font-weight:700;max-width:600px;margin:0 auto 12px;line-height:1.2;position:relative;z-index:1}
+.hero p{font-size:clamp(15px,2vw,17px);max-width:520px;margin:0 auto 24px;color:#E8F0FE;line-height:1.7;position:relative;z-index:1}
+.hero .btn{display:inline-block;background:#28337a;color:#fff;padding:14px 36px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;transition:all .25s;position:relative;z-index:1}
+.hero .btn:hover{background:#1A90D6;transform:translateY(-2px);box-shadow:0 8px 28px rgba(40,51,122,.35)}
+.content{padding:48px 24px 60px;max-width:680px;margin:0 auto}
+.card{background:#fff;border-radius:16px;padding:36px 32px;border:2px solid #e8edf2;margin-bottom:24px}
+.card h2{font-size:20px;color:#155A8A;margin-bottom:12px}
+.card p{font-size:15px;color:#374151;line-height:1.7;margin-bottom:8px}
+.card ul{margin:12px 0;padding-left:20px}
+.card ul li{font-size:14px;color:#374151;line-height:1.8}
+.card ul li strong{color:#155A8A}
+.tag{display:inline-block;background:#D6EEFA;color:#155A8A;padding:2px 10px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:8px}
+.steps{display:flex;flex-direction:column;gap:16px;margin:16px 0}
+.step{display:flex;align-items:flex-start;gap:12px}
+.step .num{background:#1A90D6;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;margin-top:2px}
+.step .text{font-size:14px;color:#374151;line-height:1.6}
+.step .text strong{color:#155A8A}
+.cta-wrap{text-align:center;margin-top:8px}
+.cta-wrap a{display:inline-block;background:#1A90D6;color:#fff;padding:14px 36px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;transition:all .25s}
+.cta-wrap a:hover{background:#1680C0;transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,144,214,.3)}
+.footer{background:#1A90D6;color:#E8F0FE;padding:32px 24px 20px;font-size:13px}
+.footer .fw{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+.footer h4{color:#F0F7FF;font-size:12px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.6px}
+.footer p,.footer a{color:#E8F0FE;text-decoration:none;line-height:2}
+.footer a:hover{color:#fff}
+.footer .bt{text-align:center;padding-top:20px;margin-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:12px}
+@media(max-width:640px){
+.hero{padding:48px 20px 44px}
+.content{padding:32px 16px 40px}
+.card{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="icon">&#9989;</div>
+  <h1>Solicitud enviada con &eacute;xito</h1>
+  <p>Gracias por confiar en Dolphin Medical, doctor(a). Hemos recibido sus datos correctamente y nuestro equipo ya est&aacute; procesando su solicitud.</p>
+  <a href="/colombia/reconocimiento/" class="btn">Volver al programa de reconocimiento</a>
+</section>
+<section class="content">
+  <div class="card">
+    <span class="tag">Confirmaci&oacute;n</span>
+    <h2>Registro guardado en nuestro sistema</h2>
+    <p>Notificaci&oacute;n enviada al equipo Dolphin Medical para que inicien el proceso de coordinaci&oacute;n.</p>
+  </div>
+  <div class="card">
+    <span class="tag">Pr&oacute;ximos pasos</span>
+    <h2>&iquest;Qu&eacute; sigue ahora?</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div class="text"><strong>Revisi&oacute;n de datos</strong> &mdash; El equipo Dolphin Medical verificar&aacute; la informaci&oacute;n registrada.</div></div>
+      <div class="step"><div class="num">2</div><div class="text"><strong>Contacto v&iacute;a WhatsApp</strong> &mdash; Un asesor se comunicar&aacute; al n&uacute;mero registrado en las pr&oacute;ximas <strong>24 horas</strong> para coordinar la visita.</div></div>
+      <div class="step"><div class="num">3</div><div class="text"><strong>Entrega del reconocimiento</strong> &mdash; Coordinaremos la fecha y hora ideales para usted durante el horario de 8:00 a 17:00.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <span class="tag">Informaci&oacute;n de contacto</span>
+    <h2>&iquest;Tiene alguna duda?</h2>
+    <p>Si necesita modificar alg&uacute;n dato o tiene preguntas antes de que lo contactemos, puede escribirnos directamente:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:Info@comercialymarcas.com" style="color:#1A90D6">Info@comercialymarcas.com</a></li>
+      <li><strong>WhatsApp:</strong> (57) 31 7403 6110</li>
+      <li><strong>Tel&eacute;fono:</strong> (57) 31 7893 8018</li>
+    </ul>
+  </div>
+  <div class="cta-wrap">
+    <a href="/colombia/reconocimiento/">&larr; Volver al programa de reconocimiento</a>
+  </div>
+</section>
+<footer class="footer">
+  <div class="fw">
+    <div><h4>Dolphin Medical Colombia</h4><p>Calle 12 No. 2-35 Int. A<br>Cota - Cundinamarca</p></div>
+    <div><h4>Contacto</h4><p><a href="mailto:atrivino@dolphinmedical.com">atrivino@dolphinmedical.com</a></p><p><a href="tel:+573174036110">(57) 31 7403 6110</a></p><p><a href="tel:+573178938018">(57) 31 7893 8018</a></p></div>
+    <div><h4>Enlaces</h4><p><a href="/colombia/reconocimiento/">Programa de reconocimiento</a></p><p><a href="/colombia/politica-datos/">Pol&iacute;tica de datos</a></p></div>
+  </div>
+  <div class="bt">&copy; 2026 Dolphin Medical Colombia. Todos los derechos reservados.</div>
+</footer>
+</body>
+</html>
