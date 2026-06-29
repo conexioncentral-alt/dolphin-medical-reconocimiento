@@ -9,8 +9,6 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1f2e;background:#f5f7fc;line-height:1.6}
 
-/* TOP BAR */
-
 /* HERO */
 .hero{background:linear-gradient(135deg,#1A90D6 0%,#1680C0 100%);color:#fff;padding:110px 24px 90px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27100%27%20height%3D%27100%27%20viewBox%3D%270%200%20100%20100%27%3E%3Cpolygon%20points%3D%2750%2C5%2095%2C50%2050%2C95%205%2C50%27%20fill%3D%27none%27%20stroke%3D%27rgba(77%2C195%2C255%2C0.06)%27%20stroke-width%3D%271%27%2F%3E%3C%2Fsvg%3E");background-size:100px 100px;z-index:0}
@@ -69,7 +67,6 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .msg.er{display:block;background:#FDECEC;color:#991B1B;border:1px solid #F5C6C6}
 .msg.ok h3{font-size:18px;margin-bottom:6px;color:#155A8A}
 
-
 /* FOOTER */
 .footer{background:#1A90D6;color:#E8F0FE;padding:32px 24px 20px;font-size:13px}
 .footer .fw{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
@@ -100,7 +97,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
 <div class="intro">
   <p><strong>En Dolphin Medical admiramos su trabajo.</strong> Sabemos lo que implica estar ah&iacute;, tomar decisiones dif&iacute;ciles, mantener la calma cuando otros la pierden. Este programa de reconocimiento no es un simple detalle: es nuestra forma de decirle, con sinceridad, que valoramos todo lo que hace. Sin condiciones, sin compromisos.</p>
-  <span class="sig">— El equipo de Dolphin Medical Colombia</span>
+  <span class="sig">&mdash; El equipo de Dolphin Medical Colombia</span>
 </div>
 <div class="wrap" id="productos">
   <div style="text-align:center;margin-bottom:32px">
@@ -109,12 +106,12 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     <p class="sd">Cada uno fue seleccionado pensando en su utilidad cl&iacute;nica y en el bienestar de sus pacientes.</p>
   </div>
   <div class="gifts" id="giftGrid">
-    <div class="gift" data-n="Pesario Ring #5"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Pesario-Ring-5.jpg" alt="Pesario Ring #5"></div><div class="info"><h3>Pesario Ring #5</h3><p>Flexibilidad y confort para el soporte p&eacute;lvico de sus pacientes.</p><div class="sel"><input type="radio" name="g" id="a1" value="Pesario Ring #5" required><label for="a1">Seleccionar</label></div></div></div>
-    <div class="gift" data-n="Balanza Monitor Grasa"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Balanza-Monitor-Grasa-Latidos.jpg" alt="Balanza con Monitor de Grasa"></div><div class="info"><h3>Balanza con Monitor de Grasa</h3><p>Tecnolog&iacute;a de bioimpedancia para su consultorio.</p><div class="sel"><input type="radio" name="g" id="a2" value="Balanza Monitor Grasa"><label for="a2">Seleccionar</label></div></div></div>
-    <div class="gift" data-n="Linterna GMD LED"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Linterna-Contacto-LED-GMD.jpg" alt="Linterna de Contacto GMD"></div><div class="info"><h3>Linterna de Contacto GMD</h3><p>Iluminaci&oacute;n cl&iacute;nica de alta fidelidad crom&aacute;tica.</p><div class="sel"><input type="radio" name="g" id="a3" value="Linterna GMD LED"><label for="a3">Seleccionar</label></div></div></div>
-    <div class="gift" data-n="Pulsioximetro GMDX-201D"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Pulsioximetro-Curva-Latidos-Pro.jpg" alt="Pulsioxímetro GMDX-201D"></div><div class="info"><h3>Pulsiox&iacute;metro GMDX-201D</h3><p>Monitoreo de saturaci&oacute;n con curva de latidos.</p><div class="sel"><input type="radio" name="g" id="a4" value="Pulsioximetro GMDX-201D"><label for="a4">Seleccionar</label></div></div></div>
-    <div class="gift" data-n="Pesario Gellhorn #5"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Pesario-Gellhorn-Vastago-Corto-5.jpg" alt="Pesario Gellhorn #5"></div><div class="info"><h3>Pesario Gellhorn #5</h3><p>Soporte p&eacute;lvico reforzado con v&aacute;stago corto.</p><div class="sel"><input type="radio" name="g" id="a5" value="Pesario Gellhorn #5"><label for="a5">Seleccionar</label></div></div></div>
-    <div class="gift" data-n="Pesario Ring #6"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Pesario-Ring-6.jpg" alt="Pesario Ring #6"></div><div class="info"><h3>Pesario Ring #6</h3><p>El est&aacute;ndar de referencia en soporte p&eacute;lvico.</p><div class="sel"><input type="radio" name="g" id="a6" value="Pesario Ring #6"><label for="a6">Seleccionar</label></div></div></div>
+    <div class="gift" data-n="Pesario Ring #5"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Pesario-Ring-5.jpg" alt="Pesario Ring #5" loading="lazy"></div><div class="info"><h3>Pesario Ring #5</h3><p>Flexibilidad y confort para el soporte p&eacute;lvico de sus pacientes.</p><div class="sel"><input type="radio" name="g" id="a1" value="Pesario Ring #5" required><label for="a1">Seleccionar</label></div></div></div>
+    <div class="gift" data-n="Balanza Monitor Grasa"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Balanza-Monitor-Grasa-Latidos.jpg" alt="Balanza con Monitor de Grasa" loading="lazy"></div><div class="info"><h3>Balanza con Monitor de Grasa</h3><p>Tecnolog&iacute;a de bioimpedancia para su consultorio.</p><div class="sel"><input type="radio" name="g" id="a2" value="Balanza Monitor Grasa"><label for="a2">Seleccionar</label></div></div></div>
+    <div class="gift" data-n="Linterna GMD LED"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Linterna-Contacto-LED-GMD.jpg" alt="Linterna de Contacto GMD" loading="lazy"></div><div class="info"><h3>Linterna de Contacto GMD</h3><p>Iluminaci&oacute;n cl&iacute;nica de alta fidelidad crom&aacute;tica.</p><div class="sel"><input type="radio" name="g" id="a3" value="Linterna GMD LED"><label for="a3">Seleccionar</label></div></div></div>
+    <div class="gift" data-n="Pulsioximetro GMDX-201D"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Pulsioximetro-Curva-Latidos-Pro.jpg" alt="Pulsioxímetro GMDX-201D" loading="lazy"></div><div class="info"><h3>Pulsiox&iacute;metro GMDX-201D</h3><p>Monitoreo de saturaci&oacute;n con curva de latidos.</p><div class="sel"><input type="radio" name="g" id="a4" value="Pulsioximetro GMDX-201D"><label for="a4">Seleccionar</label></div></div></div>
+    <div class="gift" data-n="Pesario Gellhorn #5"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Pesario-Gellhorn-Vastago-Corto-5.jpg" alt="Pesario Gellhorn #5" loading="lazy"></div><div class="info"><h3>Pesario Gellhorn #5</h3><p>Soporte p&eacute;lvico reforzado con v&aacute;stago corto.</p><div class="sel"><input type="radio" name="g" id="a5" value="Pesario Gellhorn #5"><label for="a5">Seleccionar</label></div></div></div>
+    <div class="gift" data-n="Pesario Ring #6"><div class="pic"><img src="https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/images/Pesario-Ring-6.jpg" alt="Pesario Ring #6" loading="lazy"></div><div class="info"><h3>Pesario Ring #6</h3><p>El est&aacute;ndar de referencia en soporte p&eacute;lvico.</p><div class="sel"><input type="radio" name="g" id="a6" value="Pesario Ring #6"><label for="a6">Seleccionar</label></div></div></div>
   </div>
 </div>
 <section class="form-section" id="formulario">
@@ -124,8 +121,6 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     <div id="msgBox" class="msg"></div>
     <form id="frm">
       <div id="selShow" class="chosen" style="display:none">Ha seleccionado: <strong id="selName">&mdash;</strong></div>
-
-      
 
       <div class="fg"><label>Nombre completo <span class="r">*</span></label><input type="text" name="nombre" placeholder="Dr. Juan P&eacute;rez L&oacute;pez" required></div>
 
@@ -143,12 +138,12 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
       <div class="fg"><label>Direcci&oacute;n del consultorio <span class="r">*</span></label><input type="text" name="direccion" placeholder="Ciudad, direcci&oacute;n, consultorio..." required></div>
 
-      <div class="fg"><label>¿Hay alg&uacute;n dispositivo o insumo m&eacute;dico que hoy sea dif&iacute;cil de conseguir para su pr&aacute;ctica? Cu&eacute;ntenos, queremos ayudarlo a encontrarlo.</label>
+      <div class="fg"><label>&iquest;Hay alg&uacute;n dispositivo o insumo m&eacute;dico que hoy sea dif&iacute;cil de conseguir para su pr&aacute;ctica? Cu&eacute;ntenos, queremos ayudarlo a encontrarlo.</label>
         <textarea name="necesidad" rows="3" required placeholder="Ej: Un espir&oacute;metro pedi&aacute;trico, un dermoscopio digital, un monitor de presi&oacute;n arterial de brazo grande..."></textarea>
       </div>
 
       <div class="f2">
-        <div class="fg"><label>Fecha de visita <span class="r">*</span></label><input type="date" name="fecha" required min="2026-07-07" max="2026-07-31" data-static-dates="1"></div>
+        <div class="fg"><label>Fecha de visita <span class="r">*</span></label><input type="date" name="fecha" required min="2026-07-07" max="2026-07-31"></div>
         <div class="fg"><label>Horario preferido <span class="r">*</span></label>
           <select name="horario" required>
             <option value="">Seleccione horario</option>
@@ -182,32 +177,50 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 (function(){
 var cards=document.querySelectorAll('.gift'),d=document.getElementById('selShow'),n=document.getElementById('selName'),m=document.getElementById('msgBox'),f=document.getElementById('frm'),b=document.getElementById('btnSub');
 cards.forEach(function(t){t.addEventListener('click',function(){var r=t.querySelector('input[type=radio]');if(r){r.checked=true;cards.forEach(function(x){x.classList.remove('selected')});t.classList.add('selected');var v=r.value;d.style.display=v?'block':'none';n.textContent=v||'---'}})});
-f.addEventListener('submit',function(e){e.preventDefault();var sel=document.querySelector('input[name=g]:checked');if(!sel){o('er','Seleccione un reconocimiento primero.');return}b.disabled=true;b.textContent='Enviando...';m.style.display='none';var p={reconocimiento:sel.value,nombre:document.querySelector('[name=nombre]').value,especialidad:document.querySelector('[name=especialidad]').value,direccion:document.querySelector('[name=direccion]').value,fecha:document.querySelector('[name=fecha]').value,horario:document.querySelector('[name=horario]').value,necesidad:document.querySelector('[name=necesidad]').value||'--',whatsapp:document.querySelector('[name=whatsapp]').value,email:document.querySelector('[name=email]').value||'--'};var x=new XMLHttpRequest();
-x.open('POST','https://script.google.com/macros/s/AKfycbyFsHuPZLiwwyFTyeWh8YnZFU3QoOaFZbzJ3r5E_fnwwqM0qRLjP0oasAig3PGz2DZI/exec',true);
-x.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-x.onload=function(){b.disabled=false;b.textContent='Enviar solicitud →';try{var r=JSON.parse(x.responseText);o('ok','<h3>✅ Registro exitoso</h3><p>Gracias por su interés, Doctor(a). Un asesor de Dolphin Medical se comunicará al WhatsApp registrado para coordinar la entrega de su reconocimiento.</p>')}catch(e){o('ok','<h3>✅ Registro exitoso</h3><p>Gracias por su interés, Doctor(a). Un asesor se comunicará pronto.</p>')}};
-x.onerror=function(){b.disabled=false;b.textContent='Enviar solicitud →';o('ok','<h3>✅ Registro enviado</h3><p>Gracias por su interés, Doctor(a). Su registro ha quedado almacenado y un asesor se comunicará pronto.</p>')};
-function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.display='block'}
+
+var APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTr9727ihFTA-cTvg5GVi1vw3RrJvcEtgXq4AKOsnMr9ejTWvGlCqI3PFs8CJ0EyO-/exec';
+
+f.addEventListener('submit',function(e){
+  e.preventDefault();
+  var sel=document.querySelector('input[name=g]:checked');
+  if(!sel){showMsg('er','Seleccione un reconocimiento primero.');return}
+  b.disabled=true;b.textContent='Enviando...';m.style.display='none';
+  var p={
+    reconocimiento:sel.value,
+    nombre:document.querySelector('[name=nombre]').value,
+    especialidad:document.querySelector('[name=especialidad]').value,
+    direccion:document.querySelector('[name=direccion]').value,
+    fecha:document.querySelector('[name=fecha]').value,
+    horario:document.querySelector('[name=horario]').value,
+    necesidad:document.querySelector('[name=necesidad]').value||'--',
+    whatsapp:document.querySelector('[name=whatsapp]').value,
+    email:document.querySelector('[name=email]').value||'--'
+  };
+  fetch(APP_SCRIPT_URL,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(p)
+  }).then(function(r){
+    showMsg('ok','<h3>Gracias, doctor.</h3>Su solicitud ha sido recibida. En Dolphin Medical valoramos profundamente su confianza. Un asesor se comunicar&aacute; al WhatsApp registrado para coordinar la entrega de su reconocimiento. Siga cuidando de sus pacientes, que de nosotros se cuida usted.');
+    f.reset();
+    cards.forEach(function(x){x.classList.remove('selected')});
+    d.style.display='none';
+  }).catch(function(){
+    // Fallback: guardar en localStorage si el servidor no responde
+    var z=JSON.parse(localStorage.getItem('dm')||'[]');
+    z.push(p);
+    localStorage.setItem('dm',JSON.stringify(z));
+    showMsg('ok','<h3>Recibido (copia local).</h3>Su solicitud qued&oacute; guardada en su navegador. Nos pondremos en contacto pronto.');
+  }).finally(function(){
+    b.disabled=false;
+    b.textContent='Enviar solicitud &rarr;';
+  });
+});
+function showMsg(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.display='block';setTimeout(function(){m.style.display='none'},8000)}
 })();
 </script>
 
 <script>
-// Dynamic date range for fecha field
-(function(){
-  var fechaInp = document.querySelector('[name=fecha]');
-  if(fechaInp){
-    var today = new Date();
-    var y = today.getFullYear();
-    var m = String(today.getMonth()+1).padStart(2,'0');
-    var d = String(today.getDate()).padStart(2,'0');
-    fechaInp.min = y+'-'+m+'-'+d;
-    // Max: 3 months from now
-    var maxD = new Date(today);
-    maxD.setMonth(maxD.getMonth()+3);
-    fechaInp.max = maxD.getFullYear()+'-'+String(maxD.getMonth()+1).padStart(2,'0')+'-'+String(maxD.getDate()).padStart(2,'0');
-  }
-})();
-
 // Form validation - enable submit only when all required fields are valid
 (function(){
   var frm = document.getElementById('frm');
@@ -217,20 +230,16 @@ function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.di
   function checkForm() {
     var valid = true;
     requiredFields.forEach(function(field) {
-      // Skip hidden checkboxes that are visually part of terms
       if (field.type === 'checkbox' && !field.checked) { valid = false; return; }
-      if (field.type === 'checkbox') { return; } // checked OK
+      if (field.type === 'checkbox') { return; }
       if (!field.value || field.value.trim() === '') { valid = false; return; }
-      // Special validation for selects
       if (field.tagName === 'SELECT' && field.value === '') { valid = false; return; }
-      // Special validation for radio (gift selection)
       if (field.type === 'radio' && field.name === 'g') {
         var radios = frm.querySelectorAll('input[name="g"]');
         var checked = false;
         radios.forEach(function(r) { if(r.checked) checked = true; });
         if (!checked) valid = false;
       }
-      // Email validation
       if (field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
         valid = false;
       }
@@ -238,22 +247,18 @@ function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.di
     btn.disabled = !valid;
   }
   
-  // Listen on all required fields
   requiredFields.forEach(function(field) {
     field.addEventListener('change', checkForm);
     field.addEventListener('input', checkForm);
     field.addEventListener('blur', checkForm);
   });
   
-  // Also listen on gift card clicks
   document.querySelectorAll('.gift').forEach(function(g) {
     g.addEventListener('click', function() { setTimeout(checkForm, 100); });
   });
   
-  // Initial check
   checkForm();
 })();
-
 </script>
 </body>
 </html>

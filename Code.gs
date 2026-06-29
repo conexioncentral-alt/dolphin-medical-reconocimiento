@@ -12,6 +12,25 @@ var EMAIL_NOTIFICACION = [
   "Info@comercialymarcas.com"
 ];
 
+// Columnas en orden correcto:
+// A: Fecha registro (auto)
+// B: Nombre completo
+// C: Especialidad
+// D: Direccion consultorio
+// E: Dispositivo Elegido (reconocimiento)
+// F: Insumo Necesita
+// G: WhatsApp
+// H: Email
+// I: Horario preferido
+// J: Fecha visita
+// K: Fuente
+
+var HEADERS = [
+  "Fecha Registro", "Nombre", "Especialidad", "Direccion",
+  "Dispositivo Elegido", "Insumo Necesita",
+  "WhatsApp", "Email", "Horario", "Fecha Visita", "Fuente"
+];
+
 function doPost(e) {
   try {
     var data;
@@ -24,20 +43,24 @@ function doPost(e) {
     var ss = SpreadsheetApp.openById(SHEET_ID);
     var sheet = ss.getSheets()[0];
 
+    // Si la hoja esta vacia, escribir encabezados
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow([
-        "Fecha", "Nombre", "Especialidad", "Direccion",
-        "Dispositivo Elegido", "Insumo Necesita",
-        "WhatsApp", "Email", "Horario", "Fuente"
-      ]);
+      sheet.appendRow(HEADERS);
     }
 
+    // ORDEN CORREGIDO: cada campo va a su columna correcta
     sheet.appendRow([
-      new Date(), data.reconocimiento || "", data.nombre || "",
-      data.especialidad || "", data.direccion || "",
-      data.fecha || "", data.horario || "",
-      data.necesidad || "", data.whatsapp || "",
-      data.email || "", "Programa Reconocimiento Dolphin Medical"
+      new Date(),                  // A: Fecha Registro
+      data.nombre || "",           // B: Nombre
+      data.especialidad || "",     // C: Especialidad
+      data.direccion || "",        // D: Direccion
+      data.reconocimiento || "",   // E: Dispositivo Elegido
+      data.necesidad || "",        // F: Insumo Necesita
+      data.whatsapp || "",         // G: WhatsApp
+      data.email || "",            // H: Email
+      data.horario || "",          // I: Horario
+      data.fecha || "",            // J: Fecha Visita
+      "Programa Reconocimiento Dolphin Medical"  // K: Fuente
     ]);
 
     var notifOk = enviarNotificacion(data);
@@ -51,16 +74,17 @@ function enviarNotificacion(data) {
   var ok = false;
   var asunto = "Nuevo registro - Reconocimiento Dolphin Medical";
   var cuerpo = "<h2>Nuevo medico registrado</h2><table>";
-  cuerpo += "<tr><td><b>Reconocimiento:</b></td><td>" + (data.reconocimiento || "--") + "</td></tr>";
   cuerpo += "<tr><td><b>Nombre:</b></td><td>" + (data.nombre || "--") + "</td></tr>";
   cuerpo += "<tr><td><b>Especialidad:</b></td><td>" + (data.especialidad || "--") + "</td></tr>";
   cuerpo += "<tr><td><b>Direccion:</b></td><td>" + (data.direccion || "--") + "</td></tr>";
+  cuerpo += "<tr><td><b>Reconocimiento:</b></td><td>" + (data.reconocimiento || "--") + "</td></tr>";
   cuerpo += "<tr><td><b>Fecha visita:</b></td><td>" + (data.fecha || "--") + "</td></tr>";
   cuerpo += "<tr><td><b>Horario:</b></td><td>" + (data.horario || "--") + "</td></tr>";
   cuerpo += "<tr><td><b>Insumo necesita:</b></td><td>" + (data.necesidad || "--") + "</td></tr>";
   cuerpo += "<tr><td><b>WhatsApp:</b></td><td>" + (data.whatsapp || "--") + "</td></tr>";
   cuerpo += "<tr><td><b>Email:</b></td><td>" + (data.email || "--") + "</td></tr>";
   cuerpo += "</table>";
+  cuerpo += "<p><small>Programa Reconocimiento Dolphin Medical Colombia</small></p>";
 
   for (var i = 0; i < EMAIL_NOTIFICACION.length; i++) {
     try {
