@@ -13,7 +13,7 @@ function doPost(e) {
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(["Fecha Registro","Nombre","Especialidad","Direccion","Dispositivo Elegido","Insumo Necesita","WhatsApp","Email","Horario","Fecha Visita","Fuente"]);
     }
-    sheet.appendRow([new Date(), data.nombre||"", data.especialidad||"", data.direccion||"", data.reconocimiento||"", data.necesidad||"", data.whatsapp||"", data.email||"", data.horario||"", data.fecha||"", "Programa Reconocimiento Dolphin Medical"]);
+    sheet.appendRow([new Date(), data.nombre||"", data.especialidad||"", data.direccion||"", data.reconocimiento||"", data.necesidad||"", "'"+data.whatsapp, "'"+data.email, data.horario||"", data.fecha||"", "Programa Reconocimiento Dolphin Medical"]);
     var notifOk = enviarNotificacion(data);
     return ContentService.createTextOutput(JSON.stringify({status:"ok", sheets:true, email:notifOk})).setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
