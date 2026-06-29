@@ -7,7 +7,7 @@
 | GH Pages (sitio standalone) | https://conexioncentral-alt.github.io/dolphin-medical-reconocimiento/ | ✅ Activo |
 | WP iframe (producción) | https://dolphinmedical.com/colombia/reconocimiento/ | ✅ Activo |
 | Google Sheet (datos) | https://docs.google.com/spreadsheets/d/1bnmtwXuffA1bDHoVCCZxWgcRP_LE_EIyST5NDlBdpk0/edit | ✅ Activo |
-| Apps Script (POST endpoint) | Script ID en Code.gs | ⚠️ Verificar despliegue |
+- Apps Script (POST endpoint) | `https://script.google.com/macros/s/AKfycbx-m5eMjHTtN-rfDwfzhZkDohhv75rHPneBC33Eq9k-iUSLKCzDLegx0c-vW0gatXfh/exec` | ✅ Redeployado
 
 ## Estructura del proyecto
 
