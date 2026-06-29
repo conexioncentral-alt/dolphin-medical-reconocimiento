@@ -64,6 +64,19 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .msg.er{display:block;background:#FDECEC;color:#991B1B;border:1px solid #F5C6C6}
 .msg.ok h3{font-size:18px;margin-bottom:6px;color:#155A8A}
 
+/* SUCCESS MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
+.modal-overlay.show{display:flex}
+.modal-box{background:#fff;border-radius:20px;padding:40px 36px 32px;max-width:460px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25);animation:modalIn .35s ease-out}
+@keyframes modalIn{from{transform:scale(.92) translateY(20px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.modal-box .icon{width:68px;height:68px;background:#E8F8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.modal-box .icon svg{width:34px;height:34px}
+.modal-box h2{font-size:22px;color:#155A8A;margin-bottom:8px}
+.modal-box p{font-size:15px;color:#4B5563;line-height:1.7;margin-bottom:6px}
+.modal-box .btn-aceptar{display:inline-block;background:#1A90D6;color:#fff;border:none;padding:14px 48px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:all .25s;margin-top:18px;text-decoration:none}
+.modal-box .btn-aceptar:hover{background:#1680C0;transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,144,214,.35)}
+.modal-box .btn-aceptar:active{transform:translateY(0)}
+
 
 /* FOOTER */
 .footer{background:#1A90D6;color:#E8F0FE;padding:32px 24px 20px;font-size:13px}
@@ -175,12 +188,27 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     </form>
   </div>
 </section>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0E9F6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h2>&iexcl;Registro exitoso!</h2>
+    <p>Sus datos han sido recibidos correctamente.</p>
+    <p>Pronto recibir&aacute; su obsequio de parte de <strong>Dolphin Medical</strong>. Un asesor se comunicar&aacute; al WhatsApp registrado para coordinar la entrega de su reconocimiento.</p>
+    <a href="https://dolphinmedical.com/colombia/" class="btn-aceptar" id="btnAceptar" target="_top">Aceptar &rarr;</a>
+  </div>
+</div>
+
 <script>
 (function(){
-var cards=document.querySelectorAll('.gift'),d=document.getElementById('selShow'),n=document.getElementById('selName'),m=document.getElementById('msgBox'),f=document.getElementById('frm'),b=document.getElementById('btnSub');
+var cards=document.querySelectorAll('.gift'),d=document.getElementById('selShow'),n=document.getElementById('selName'),m=document.getElementById('msgBox'),f=document.getElementById('frm'),b=document.getElementById('btnSub'),modal=document.getElementById('successModal');
 cards.forEach(function(t){t.addEventListener('click',function(){var r=t.querySelector('input[type=radio]');if(r){r.checked=true;cards.forEach(function(x){x.classList.remove('selected')});t.classList.add('selected');var v=r.value;d.style.display=v?'block':'none';n.textContent=v||'---'}})});
-f.addEventListener('submit',function(e){e.preventDefault();var sel=document.querySelector('input[name=g]:checked');if(!sel){o('er','Seleccione un reconocimiento primero.');return}b.disabled=true;b.textContent='Enviando...';m.style.display='none';var p={reconocimiento:sel.value,nombre:document.querySelector('[name=nombre]').value,especialidad:document.querySelector('[name=especialidad]').value,direccion:document.querySelector('[name=direccion]').value,fecha:document.querySelector('[name=fecha]').value,horario:document.querySelector('[name=horario]').value,necesidad:document.querySelector('[name=necesidad]').value||'--',whatsapp:document.querySelector('[name=whatsapp]').value,email:document.querySelector('[name=email]').value||'--'};fetch('https://script.google.com/macros/s/AKfycbx-m5eMjHTtN-rfDwfzhZkDohhv75rHPneBC33Eq9k-iUSLKCzDLegx0c-vW0gatXfh/exec',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(p)}).then(function(r){o('ok','<h3>Gracias, doctor.</h3>Su solicitud ha sido recibida. En Dolphin Medical valoramos profundamente su confianza. Un asesor se comunicará al WhatsApp registrado para coordinar la entrega de su reconocimiento. Siga cuidando de sus pacientes, que de nosotros se cuida usted.');f.reset();cards.forEach(function(x){x.classList.remove('selected')});d.style.display='none'}).catch(function(){var z=JSON.parse(localStorage.getItem('dm')||'[]');z.push(p);localStorage.setItem('dm',JSON.stringify(z));o('ok','<h3>Recibido (copia local).</h3>Su solicitud quedó guardada en su navegador. Nos pondremos en contacto pronto.')}).finally(function(){b.disabled=false;b.textContent='Enviar solicitud →'})});
-function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.display='block';setTimeout(function(){m.style.display='none'},8000)}
+f.addEventListener('submit',function(e){e.preventDefault();var sel=document.querySelector('input[name=g]:checked');if(!sel){o('er','Seleccione un reconocimiento primero.');return}b.disabled=true;b.textContent='Enviando...';m.style.display='none';var p={reconocimiento:sel.value,nombre:document.querySelector('[name=nombre]').value,especialidad:document.querySelector('[name=especialidad]').value,direccion:document.querySelector('[name=direccion]').value,fecha:document.querySelector('[name=fecha]').value,horario:document.querySelector('[name=horario]').value,necesidad:document.querySelector('[name=necesidad]').value||'--',whatsapp:document.querySelector('[name=whatsapp]').value,email:document.querySelector('[name=email]').value||'--'};fetch('https://script.google.com/macros/s/AKfycbx-m5eMjHTtN-rfDwfzhZkDohhv75rHPneBC33Eq9k-iUSLKCzDLegx0c-vW0gatXfh/exec',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(p)}).then(function(r){f.reset();cards.forEach(function(x){x.classList.remove('selected')});d.style.display='none';b.disabled=false;b.textContent='Enviar solicitud →';modal.classList.add('show');document.body.style.overflow='hidden'}).catch(function(){var z=JSON.parse(localStorage.getItem('dm')||'[]');z.push(p);localStorage.setItem('dm',JSON.stringify(z));b.disabled=false;b.textContent='Enviar solicitud →';o('ok','<h3>Recibido (copia local).</h3>Su solicitud quedó guardada en su navegador. Nos pondremos en contacto pronto.')})});
+function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.display='block'}
+document.getElementById('btnAceptar').addEventListener('click',function(){document.body.style.overflow=''});
 })();
 </script>
 
