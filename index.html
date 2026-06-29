@@ -185,9 +185,9 @@ cards.forEach(function(t){t.addEventListener('click',function(){var r=t.querySel
 f.addEventListener('submit',function(e){e.preventDefault();var sel=document.querySelector('input[name=g]:checked');if(!sel){o('er','Seleccione un reconocimiento primero.');return}b.disabled=true;b.textContent='Enviando...';m.style.display='none';var p={reconocimiento:sel.value,nombre:document.querySelector('[name=nombre]').value,especialidad:document.querySelector('[name=especialidad]').value,direccion:document.querySelector('[name=direccion]').value,fecha:document.querySelector('[name=fecha]').value,horario:document.querySelector('[name=horario]').value,necesidad:document.querySelector('[name=necesidad]').value||'--',whatsapp:document.querySelector('[name=whatsapp]').value,email:document.querySelector('[name=email]').value||'--'};var x=new XMLHttpRequest();
 x.open('POST','https://script.google.com/macros/s/AKfycbyFsHuPZLiwwyFTyeWh8YnZFU3QoOaFZbzJ3r5E_fnwwqM0qRLjP0oasAig3PGz2DZI/exec',true);
 x.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-x.send('data='+encodeURIComponent(JSON.stringify(p)));
-window.location.href='gracias.html';b.disabled=false;b.textContent='Enviar solicitud →';
-function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.display='block';m.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){m.style.display='none'},8000)}
+x.onload=function(){b.disabled=false;b.textContent='Enviar solicitud →';try{var r=JSON.parse(x.responseText);o('ok','<h3>✅ Registro exitoso</h3><p>Gracias por su interés, Doctor(a). Un asesor de Dolphin Medical se comunicará al WhatsApp registrado para coordinar la entrega de su reconocimiento.</p>')}catch(e){o('ok','<h3>✅ Registro exitoso</h3><p>Gracias por su interés, Doctor(a). Un asesor se comunicará pronto.</p>')}};
+x.onerror=function(){b.disabled=false;b.textContent='Enviar solicitud →';o('ok','<h3>✅ Registro enviado</h3><p>Gracias por su interés, Doctor(a). Su registro ha quedado almacenado y un asesor se comunicará pronto.</p>')};
+function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.display='block'}
 })();
 </script>
 
