@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doctor, un reconocimiento para usted — Dolphin Medical</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -88,8 +82,6 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .intro{padding:32px 16px 28px}
 }
 </style>
-</head>
-<body>
 <section class="hero">
   <h1>Un reconocimiento para usted, <em>Doctor(a)</em></h1>
   <p>Detr&aacute;s de cada paciente que atendemos, hay un m&eacute;dico como usted que lo hace posible. Por eso creamos este programa: para devolverle, aunque sea un poco, la confianza que deposita en nosotros.</p>
@@ -251,5 +243,3 @@ function o(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.di
 })();
 
 </script>
-</body>
-</html>
