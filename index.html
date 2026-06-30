@@ -55,7 +55,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .fg{margin-bottom:16px}
 .fg label{display:block;font-size:13px;font-weight:600;color:#1E78AA;margin-bottom:5px}
 .fg label .r{color:#dc2626}
-.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;border:1px solid #d0d8e5;border-radius:8px;font-size:15px;font-family:inherit;transition:border .2s}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;border:1px solid #d0d8e5;border-radius:8px;font-size:16px;font-family:inherit;transition:border .2s}
 .fg textarea{resize:vertical;min-height:70px}
 .fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:#1A90D6;box-shadow:0 0 0 3px rgba(40,51,122,.15)}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -90,12 +90,26 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
 @media(max-width:640px){
 .hero{padding:48px 20px 44px}
+.hero h1{font-size:26px}
+.hero p{font-size:15px}
 .wrap{padding:0 16px 32px}
 .form-section{padding:32px 16px}
 .f2{grid-template-columns:1fr}
 .gifts{grid-template-columns:1fr}
 .gift .pic{aspect-ratio:4/3}
 .intro{padding:32px 16px 28px}
+.intro p{font-size:15px}
+.gift .sel{min-height:44px;display:flex;align-items:center}
+.gift .sel input[type=radio]{width:28px;height:28px;min-width:28px;flex-shrink:0}
+.gift .sel label{font-size:15px}
+.fg input,.fg select,.fg textarea{font-size:16px;padding:14px}
+.fg select{min-height:48px}
+.btn-sub{font-size:17px;padding:16px;min-height:48px}
+.modal-overlay{padding:20px;align-items:flex-end}
+.modal-box{padding:32px 24px 24px;border-radius:20px 20px 8px 8px;max-width:100%}
+.modal-box h2{font-size:20px}
+.modal-box p{font-size:14px}
+.modal-box .btn-aceptar{width:100%;text-align:center;padding:16px;font-size:17px}
 }
 </style>
 </head>
