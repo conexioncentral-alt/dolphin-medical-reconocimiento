@@ -240,15 +240,30 @@ f.addEventListener('submit',function(e){
     whatsapp:document.querySelector('[name=whatsapp]').value,
     email:document.querySelector('[name=email]').value||'--'
   };
-  fetch(APP_SCRIPT_URL,{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify(p)
-  }).then(function(r){
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    return r.json();
-  }).then(function(js){
-    if(js.status!=='ok'||!js.sheets) throw new Error('AppsScript: '+JSON.stringify(js));
+  function enviarDatos(p, intentos){
+    intentos = intentos || 0;
+    return fetch(APP_SCRIPT_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(p)
+    }).then(function(r){
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    }).then(function(js){
+      if(js.status!=='ok'||!js.sheets) throw new Error('AppsScript: '+JSON.stringify(js));
+      return js;
+    }).catch(function(err){
+      if(intentos < 2){
+        // Reintento automático con backoff: 1s, 2s
+        return new Promise(function(resolve){
+          setTimeout(function(){ resolve(enviarDatos(p, intentos+1)); }, (intentos+1)*1000);
+        });
+      }
+      throw err;
+    });
+  }
+
+  enviarDatos(p).then(function(){
     f.reset();
     cards.forEach(function(x){x.classList.remove('selected')});
     d.style.display='none';
@@ -258,7 +273,6 @@ f.addEventListener('submit',function(e){
     document.body.style.overflow='hidden';
   }).catch(function(err){
     console.error('DM landing error:',err);
-    // Intento de reenvío: guardar en localStorage para reintentar
     var z=JSON.parse(localStorage.getItem('dm_pending')||'[]');
     z.push(p);
     localStorage.setItem('dm_pending',JSON.stringify(z));
