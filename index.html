@@ -231,20 +231,26 @@ f.addEventListener('submit',function(e){
     headers:{'Content-Type':'application/json','Accept':'application/json'},
     body:JSON.stringify(p)
   }).then(function(r){
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.json();
+  }).then(function(js){
+    if(js.status!=='ok'||!js.sheets) throw new Error('AppsScript: '+JSON.stringify(js));
     f.reset();
     cards.forEach(function(x){x.classList.remove('selected')});
     d.style.display='none';
     b.disabled=false;
-    b.textContent='Enviar solicitud &rarr;';
+    b.textContent='Enviar solicitud →';
     modal.classList.add('show');
     document.body.style.overflow='hidden';
-  }).catch(function(){
-    var z=JSON.parse(localStorage.getItem('dm')||'[]');
+  }).catch(function(err){
+    console.error('DM landing error:',err);
+    // Intento de reenvío: guardar en localStorage para reintentar
+    var z=JSON.parse(localStorage.getItem('dm_pending')||'[]');
     z.push(p);
-    localStorage.setItem('dm',JSON.stringify(z));
+    localStorage.setItem('dm_pending',JSON.stringify(z));
     b.disabled=false;
-    b.textContent='Enviar solicitud &rarr;';
-    showMsg('ok','<h3>Recibido (copia local).</h3>Su solicitud qued&oacute; guardada en su navegador. Nos pondremos en contacto pronto.');
+    b.textContent='Reintentar →';
+    showMsg('er','<h3>Error de conexion.</h3>Su solicitud quedo guardada. Por favor presione <strong>Reintentar</strong> o intentelo de nuevo en unos minutos.');
   });
 });
 function showMsg(t,x){m.className='msg '+(t==='ok'?'ok':'er');m.innerHTML=x;m.style.display='block'}
