@@ -3,7 +3,7 @@
  */
 
 var SHEET_ID = "1bnmtwXuffA1bDHoVCCZxWgcRP_LE_EIyST5NDlBdpk0";
-var EMAIL_NOTIFICACION = ["conexioncentral@gmail.com","estudionaranja@gmail.com","Info@comercialymarcas.com"];
+var EMAIL_NOTIFICACION = "conexioncentral@gmail.com";
 
 function doPost(e) {
   try {
@@ -22,7 +22,6 @@ function doPost(e) {
 }
 
 function enviarNotificacion(data) {
-  var ok = false;
   var cuerpo = "<h2>Nuevo registro</h2><table>";
   cuerpo += "<tr><td>Nombre:</td><td>"+(data.nombre||"--")+"</td></tr>";
   cuerpo += "<tr><td>Especialidad:</td><td>"+(data.especialidad||"--")+"</td></tr>";
@@ -32,10 +31,13 @@ function enviarNotificacion(data) {
   cuerpo += "<tr><td>WhatsApp:</td><td>"+(data.whatsapp||"--")+"</td></tr>";
   cuerpo += "<tr><td>Email:</td><td>"+(data.email||"--")+"</td></tr>";
   cuerpo += "</table>";
-  for (var i=0; i<EMAIL_NOTIFICACION.length; i++) {
-    try { MailApp.sendEmail({to:EMAIL_NOTIFICACION[i], subject:"Nuevo registro - Reconocimiento Dolphin Medical", htmlBody:cuerpo}); ok=true; } catch(e) {}
+  try {
+    MailApp.sendEmail({to:EMAIL_NOTIFICACION, subject:"Nuevo registro - Reconocimiento Dolphin Medical", htmlBody:cuerpo});
+    return true;
+  } catch(e) {
+    console.error("MailApp fallo:", e);
+    return false;
   }
-  return ok;
 }
 
 function autorizarMailApp() {
