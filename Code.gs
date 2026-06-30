@@ -3,7 +3,7 @@
  */
 
 var SHEET_ID = "1bnmtwXuffA1bDHoVCCZxWgcRP_LE_EIyST5NDlBdpk0";
-var EMAIL_NOTIFICACION = "conexioncentral@gmail.com";
+var EMAIL_NOTIFICACION = "conexioncentral@gmail.com,estudionaranja@gmail.com,Info@comercialymarcas.com";
 
 function doPost(e) {
   try {
